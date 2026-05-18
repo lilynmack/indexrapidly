@@ -1,44 +1,215 @@
-
-<!-- public/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IndexRapidly - URL Indexing Service</title>
+    <meta name="description" content="IndexRapidly - Fast, reliable URL indexing service for SEO professionals. Submit your URLs for instant or scheduled indexing.">
+    <meta name="keywords" content="URL indexing, SEO indexing, fast indexing, Google indexing, backlink indexing">
+    <meta name="author" content="IndexRapidly">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:title" content="IndexRapidly - Premium URL Indexing Service">
+    <meta property="og:description" content="Get your URLs indexed fast with our IndexRapidly platform.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://indexrapidly.com">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="IndexRapidly - Premium URL Indexing Service">
+    
+    <title>IndexRapidly - Fast URL Indexing Service</title>
+    <link rel="canonical" href="https://indexrapidly.com">
+    
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50">
-    <div class="min-h-screen flex items-center justify-center">
-        <div class="text-center">
-            <h1 class="text-6xl font-bold text-gray-900 mb-4">
-                Index<span class="text-blue-600">Rapidly</span>
-            </h1>
-            <p class="text-xl text-gray-600 mb-8">Premium URL Indexing Service</p>
-            <div class="space-x-4">
-                <a href="/dashboard.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
-                    Go to Dashboard
-                </a>
-                <a href="/api/health" class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700">
-                    Check API
-                </a>
-            </div>
-            <div class="mt-8 text-sm text-gray-500">
-                Server Status: <span id="status">Checking...</span>
-            </div>
-        </div>
-    </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
     
     <script>
-        fetch('/api/health')
-            .then(res => res.json())
-            .then(data => {
-                document.getElementById('status').innerHTML = 
-                    '✅ Online - ' + data.status;
-            })
-            .catch(() => {
-                document.getElementById('status').innerHTML = '❌ Error';
-            });
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        accent: '#8B5CF6'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center">
+                        <i class="fas fa-bolt text-blue-600 text-2xl mr-2"></i>
+                        <span class="text-2xl font-bold text-gray-800">Index<span class="text-blue-600">Rapidly</span></span>
+                    </a>
+                    <div class="hidden md:ml-6 md:flex md:space-x-8">
+                        <a href="#features" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Features</a>
+                        <a href="#pricing" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Pricing</a>
+                        <a href="#how-it-works" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">How It Works</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="/dashboard.html" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Login</a>
+                    <a href="/dashboard.html#register" class="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-20 pb-16 bg-gradient-to-br from-blue-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+            <div class="text-center">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 mb-4">
+                    Get Your URLs Indexed 
+                    <span class="text-blue-600">Lightning Fast</span>
+                </h1>
+                <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                    Premium URL indexing service powered by IndexRapidly. Submit URLs for instant or scheduled indexing.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="/dashboard.html" class="px-8 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-lg font-medium">
+                        Start Indexing Now
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#pricing" class="px-8 py-3 border border-gray-300 text-gray-700 bg-white rounded-md hover:bg-gray-50 text-lg font-medium">
+                        View Pricing
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Why Choose IndexRapidly?</h2>
+                <p class="mt-4 text-xl text-gray-600">Powerful features to get your URLs indexed quickly</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition duration-300">
+                    <div class="text-blue-600 text-4xl mb-4"><i class="fas fa-bolt"></i></div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Instant Indexing</h3>
+                    <p class="text-gray-600">Submit URLs and get them processed immediately through IndexRapidly.</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition duration-300">
+                    <div class="text-green-600 text-4xl mb-4"><i class="fas fa-clock"></i></div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Scheduled Indexing</h3>
+                    <p class="text-gray-600">Plan ahead with drip-feed scheduling. Set it and forget it.</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition duration-300">
+                    <div class="text-purple-600 text-4xl mb-4"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Secure Platform</h3>
+                    <p class="text-gray-600">Enterprise-grade security with encrypted API keys and payments.</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition duration-300">
+                    <div class="text-orange-600 text-4xl mb-4"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Real-Time Tracking</h3>
+                    <p class="text-gray-600">Monitor indexing status with detailed tracking IDs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">How It Works</h2>
+                <p class="mt-4 text-xl text-gray-600">Get started in three simple steps</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="bg-blue-600 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-2xl font-bold">1</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Create Account</h3>
+                    <p class="text-gray-600">Register for free and purchase credit packages using crypto.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-blue-600 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-2xl font-bold">2</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Submit URLs</h3>
+                    <p class="text-gray-600">Paste URLs and choose instant or scheduled indexing.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-blue-600 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-2xl font-bold">3</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Track Progress</h3>
+                    <p class="text-gray-600">Monitor your indexing with real-time status updates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Simple, Transparent Pricing</h2>
+                <p class="mt-4 text-xl text-gray-600">Choose the package that fits your needs</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6" id="pricing-cards">
+                <!-- Dynamically loaded -->
+                <div class="text-center text-gray-500">Loading packages...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p>&copy; 2024 IndexRapidly. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/app.js"></script>
+    <script>
+        // Load pricing on homepage
+        async function loadHomepagePricing() {
+            try {
+                const response = await fetch('/api/packages');
+                const packages = await response.json();
+                
+                const container = document.getElementById('pricing-cards');
+                if (container && packages.length > 0) {
+                    container.innerHTML = packages.map(pkg => `
+                        <div class="bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-blue-500 transition">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">${escapeHtml(pkg.name)}</h3>
+                            <div class="text-3xl font-bold text-blue-600 mb-4">$${pkg.price_usd}</div>
+                            <div class="text-gray-600 mb-4">
+                                <span class="font-semibold">${pkg.credits.toLocaleString()}</span> Credits
+                            </div>
+                            <a href="/dashboard.html" class="block text-center bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700">
+                                Get Started
+                            </a>
+                        </div>
+                    `).join('');
+                }
+            } catch (error) {
+                console.error('Error loading packages:', error);
+            }
+        }
+        
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        document.addEventListener('DOMContentLoaded', loadHomepagePricing);
     </script>
 </body>
 </html>
