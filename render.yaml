@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: indexrapidly
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ROCKETINDEXER_TOKEN
+        sync: false
+      - key: CRYPTO_WALLET_BTC
+        sync: false
+      - key: CRYPTO_WALLET_ETH
+        sync: false
+      - key: CRYPTO_WALLET_USDT
+        sync: false
+
+  - type: web
+    name: indexrapidly-db
+    env: postgres
+    plan: free
+    disk:
+      name: data
+      mountPath: /var/lib/postgresql/data
+      sizeGB: 1
